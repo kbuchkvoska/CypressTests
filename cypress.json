@@ -1,0 +1,4 @@
+{
+    "baseUrl": "http://id.getharvest.com/harvest/sign_in",
+    "ignoreTestFiles": "**/examples/*"
+}
