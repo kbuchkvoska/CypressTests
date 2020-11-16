@@ -9,9 +9,9 @@ describe('login form', () => {
     it('sign in with incorrect password', () => {
         cy.fixture('login').then((login) => {
             const email = login.email;
-            const password = login.password;
+            const incorrectPassword = login.incorrectPassword;
             cy.get('#email').type(email)
-            cy.get('#password').type(password)
+            cy.get('#password').type(incorrectPassword)
             cy.get('#log-in').click()
             cy.get('[class="alert"]').should('be.visible')
         })
