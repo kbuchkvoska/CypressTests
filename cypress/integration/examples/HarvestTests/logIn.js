@@ -1,20 +1,29 @@
 /// <reference types ="cypress"/>
 
+const { loginPage } = require("../../../support/page_objects/loginPage")
+
 describe('login form', () => {
 
-    beforeEach('open harvest', () => {
+    let data = {}
+
+    beforeEach('Open Harvest', () => {
         cy.visit('/')
     })
 
-    it('sign in with incorrect password', () => {
+    before(() => {
         cy.fixture('login').then((login) => {
-            const email = login.email;
-            const incorrectPassword = login.incorrectPassword;
-            cy.get('#email').type(email)
-            cy.get('#password').type(incorrectPassword)
-            cy.get('#log-in').click()
-            cy.get('[class="alert"]').should('be.visible')
+            data = login;
         })
+    })
+
+    it('sign in', () => {
+        loginPage.login(data.email, data.password)
+        cy.url().should('eq', 'https://kbuchkovska.harvestapp.com/welcome')
+    })
+
+    it('sign in with incorrect password', () => {
+        loginPage.login(data.email, data.incorrectPassword)
+        cy.get('[class="alert"]').should('be.visible')
     })
 
 })
