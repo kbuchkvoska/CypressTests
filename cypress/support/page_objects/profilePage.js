@@ -1,6 +1,6 @@
  
 
- export class ProfilePage{
+class ProfilePage{
 
     openProjectsTab(){
         cy.contains('Projects').click()

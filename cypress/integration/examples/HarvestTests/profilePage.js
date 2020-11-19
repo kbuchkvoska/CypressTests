@@ -9,7 +9,6 @@ describe('Prfile page test', () => {
     beforeEach('Open Harvest', () => {
         cy.visit('/')
         loginPage.login(data.email, data.password)
-        homePage.openUserDropDown()
         homePage.openProfilePage()
     })
 
@@ -26,7 +25,7 @@ describe('Prfile page test', () => {
         cy.contains('Changes to your basic info were saved.').should('be.visible')
     })
 
-    it.only('Add new role', () => {
+    it('Add new role', () => {
         profilePage.openBasicInfoTab()
         profilePage.addNewRole('newRole')
         cy.contains('[class="search-choice"]', 'newRole').should('be.visible')

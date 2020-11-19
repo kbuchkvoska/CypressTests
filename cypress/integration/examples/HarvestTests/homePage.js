@@ -15,21 +15,4 @@ describe ('profile page', () => {
         })
     })
 
-    it('Open my profile page', () => {
-        loginPage.login(data.email, data.password)
-        homePage.openUserDropDown()
-        cy.get('#popover-user').should('be.visible')
-    })
-
-    it.only('Update first name in profile', () => {
-        loginPage.login(data.email, data.password)
-        homePage.openUserDropDown()
-        homePage.openProfilePage()
-        
-    })
-
-    it('Open My Profile', () => {
-        homePage.openProfilePage()
-    })
-
 })

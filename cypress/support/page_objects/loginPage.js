@@ -1,18 +1,9 @@
 
+class LoginPage{
 
-export class LoginPage{
-
-    fillEmail(email){
+    login(email, incorrectPassword){
         cy.get('#email').type(email)
-    }
-
-    fillPassword(incorrectPassword){
         cy.get('#password').type(incorrectPassword)
-    }
-
-    login(email, password){
-        this.fillEmail(email)
-        this.fillPassword(password)
         this.submitLogin()
     }
 
